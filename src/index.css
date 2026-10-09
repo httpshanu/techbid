@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #05070f;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(176, 38, 255, 0.08) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(5, 7, 15, 0.95), rgba(5, 7, 15, 0.98)),
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 240, 255, 0.015) 3px, rgba(0, 240, 255, 0.015) 6px);
+  background-attachment: fixed;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* 3D Perspective Card Container */
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090e1d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2b48;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Holographic Shimmer Effect for Special Tier */
+.holographic-foil {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.15) 0%,
+    rgba(0, 240, 255, 0.25) 25%,
+    rgba(255, 0, 85, 0.2) 50%,
+    rgba(0, 255, 157, 0.25) 75%,
+    rgba(255, 215, 0, 0.15) 100%
+  );
+  background-size: 300% 300%;
+  animation: holoShimmer 5s ease infinite;
+}
+
+/* Cyber Glow Utilities */
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.text-glow-crimson {
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.7), 0 0 25px rgba(255, 0, 85, 0.4);
+}
+
+.box-glow-cyan {
+  box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.4), inset 0 0 15px -5px rgba(0, 240, 255, 0.2);
+}
+
+.box-glow-gold {
+  box-shadow: 0 0 35px -5px rgba(255, 215, 0, 0.5), inset 0 0 20px -5px rgba(255, 215, 0, 0.25);
+}
+
+.box-glow-purple {
+  box-shadow: 0 0 30px -5px rgba(176, 38, 255, 0.45), inset 0 0 15px -5px rgba(176, 38, 255, 0.2);
+}
+
+/* Screen Shake Effect for High-Tier Card Impact */
+@keyframes screenShake {
+  0% { transform: translate(0, 0); }
+  15% { transform: translate(-4px, 2px); }
+  30% { transform: translate(4px, -3px); }
+  45% { transform: translate(-3px, -2px); }
+  60% { transform: translate(3px, 2px); }
+  75% { transform: translate(-1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+.animate-screen-shake {
+  animation: screenShake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Dual Radial Shockwaves */
+@keyframes shockwaveRing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.15);
+    opacity: 1;
+    border-width: 6px;
+  }
+  60% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+.animate-shockwave-1 {
+  animation: shockwaveRing 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+.animate-shockwave-2 {
+  animation: shockwaveRing 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) 0.15s forwards;
+}
+
+/* Screen Edge Lightning Flash */
+@keyframes lightningFlash {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  25% { opacity: 0.3; }
+  40% { opacity: 0.95; }
+  60% { opacity: 0.2; }
+  80% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
+.animate-lightning-flash {
+  animation: lightningFlash 1.4s ease-out forwards;
+}
+
+/* Subtle Idle Floating Sway */
+@keyframes idleCardFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.4deg);
+  }
+}
+
+.animate-card-idle {
+  animation: idleCardFloat 5s ease-in-out infinite;
+}
+
+/* Image Card Grid Styles */
+.image-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.image-card {
+  background: #111;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+.image-card-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Character Card Uncropped Artwork Engine */
+.card-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
